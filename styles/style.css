@@ -1,5 +1,21 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+/* Верстаю от мобилки
+Стандартная тема темная */
+
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+width: 375px;
+font-family: "IBM Plex Mono" , sans-serif;
+}
+.header {
+  background-image: url(/images/cover-image-dark.png);
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+.footer {
+  background-image: url(/images/cover-image-dark.png);
 }
