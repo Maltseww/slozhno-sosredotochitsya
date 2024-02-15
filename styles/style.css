@@ -5,17 +5,184 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-width: 375px;
-font-family: "IBM Plex Mono" , sans-serif;
-}
-.header {
-  background-image: url(/images/cover-image-dark.png);
-  object-fit: cover;
-  object-position: center;
+font-family: var(--main-font, serif);
+font-size: 18px;
+color: var(--main-text);
+line-height: 23.4px;
+background-color: var(--color-dark);
+background-image: url(/images/cover-image-dark.png);
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+padding: 0 10px;
+
 }
 
+.rec-decor {
+  position: absolute;
+  display: inline-flex;
+  gap: 10px;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  z-index: -1;
+  align-items: center;
+}
+.rec-decor::before {
+  content: "REC";
+  color: var(--accent-color);
+  line-height: 24px;
+
+}
+
+.rec-decor::after {
+  content: "";
+  height: 9px;
+  width: 9px;
+  box-shadow: 0 0 2px 2px var(--accent-color);
+  border-radius: 50%;
+  display: inline-block;
+  background-color: var(--accent-color);
+  margin-right: 10px;
+}
+
+.decorated-zone::before, .decorated-zone::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+.decorated-zone::after {
+  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+/* кнопки */
+.header__theme-menu {
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.header__theme-menu-button {
+  display: inline-block;
+  padding: 1.5px 13px;
+  color: var(--accent-color);
+  background-color: transparent;
+  border: none;
+}
+.header__theme-menu-button:hover {
+  outline:  var(--transparent) solid 1px;
+  /* прозрачность */
+  
+}
+
+.header__theme-menu-button:focus {
+  /* text-decoration: underline; */
+  border-bottom: 1px solid var(--accent-color);
+  
+}
+
+.header {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+  height: 100vh;
+  padding-bottom: 40px;
+}
+
+.header__p {
+  margin: 55px 10px 106px 10px;
+  background-color: var(--accent-color);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.header__theme-menu {
+  display: grid;
+  place-items: center end;
+}
+
+
+
+
+.link{
+  text-shadow:1.5px 1.5px 0px var(--accent-color);
+  text-decoration: none;
+}
+.link:hover {
+  border-bottom: 1px solid var(--transparent);
+} 
+.link:focus {
+  outline: 1px solid var(--main-text);
+  /* в состоянии фокуса рамка не та */
+}
+
+
+
+.page__title{
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  color: var(--color-decor);
+  line-height: 82.5%;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.page__title-shadow {
+  text-shadow:4px 4px 0px var(--accent-color) ;
+}
+
+
+.title {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 10px;
+}
+
+.title-decor {
+  color: var(--color-dark);
+  background-color: var(--accent-color);
+}
+ 
+.list__how .title-decor {
+font-weight: 400;
+}
+
+.images-gallery-list__item {
+  max-width: 100%;
+}
+
+.main__theme {
+  display: grid;
+  gap: 50px;
+}
+
+.section {
+  display: grid;
+  gap: 10px;
+}
+
+.list {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 10px;
+}
 
 
 .footer {
   background-image: url(/images/cover-image-dark.png);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
