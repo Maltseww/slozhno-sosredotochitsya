@@ -14,5 +14,8 @@
   --main-text: #353430;
   --transparent: rgba(53, 52, 48, 0.4);
   --bg-main: url(/images/cover-image-light.png);
+  --display: none;
 }
+@media (
 
+)

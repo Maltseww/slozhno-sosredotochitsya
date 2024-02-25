@@ -26,7 +26,7 @@ gap: 40px;
 
 .rec-decor {
   position: absolute;
-  display: inline-flex;
+  display: var(--display);
   gap: 10px;
   inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
