@@ -5,22 +5,23 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-font-family: var(--main-font, serif);
+font-family: var(--main-font, monospace);
 font-size: 18px;
 color: var(--main-text);
 line-height: 23.4px;
-background-color: var(--color-text-title);
+background-color: var(--color-bg-title);
 background-image: var(--bg-main);
 background-attachment: fixed;
 background-position: center;
 background-size: cover;
-padding: 0 10px;
+/* padding: 0 10px; */
 display: grid;
-gap: 40px;
+/* gap: 40px; */
 }
 
 .header__theme-menu-button_active {
   pointer-events: none;
+  outline: var(--transparent) solid 1px;
 }
 
 
@@ -46,7 +47,6 @@ gap: 40px;
   width: 9px;
   box-shadow: 0 0 2px 2px var(--accent-color);
   border-radius: 50%;
-  display: inline-block;
   background-color: var(--accent-color);
   margin-right: 10px;
 }
@@ -81,77 +81,79 @@ gap: 40px;
   line-height: inherit;
 }
 
+.header__theme-menu-list {
+  display: grid;
+  gap: 12px;
+}
+
 .header__theme-menu-button {
-  display: inline-block;
   padding: 1.5px 13px;
   color: var(--accent-color);
   background-color: transparent;
   border: none;
+  text-transform: lowercase;
+  font-family: var(--main-font);
 }
 .header__theme-menu-button:hover {
   outline:  var(--transparent) solid 1px;
-  /* прозрачность */
-  
 }
 
 .header__theme-menu-button:focus-visible {
-  /* text-decoration: underline; */
   border-bottom: 1px solid var(--accent-color);
-  
+}
+
+.header__theme-menu-button:focus {
+  outline: 0;
 }
 
 .header {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
 
 }
 
 .header__p {
   margin-block: 55px;
   display: flex;
-  background-color: var(--bg-color-title);
-  color: var(--color-text-title);
-  font-weight: 700;
-  block-size: 117px;
-  inline-size: 355px;
+  inline-size: clamp(22.188rem, 20.955vw + 17.276rem, 30.688rem);
   justify-self: end;
+  font-weight: 700;
 }
 
 .header__theme-menu {
   display: grid;
   place-items: center end;
+  margin-block: 65px;
 }
 
-
-
-
 .link{
-  text-shadow:1.5px 1.5px 0px var(--accent-color);
+  text-shadow:1.5px 1.5px 0px var(--color-decor-shadow);
   text-decoration: none;
 }
 .link:hover {
   border-bottom: 1px solid var(--transparent);
 } 
-.link:focus {
+.link:focus-visible {
   outline: 1px solid var(--main-text);
-  /* в состоянии фокуса рамка не та */
+}
+.link:focus {
+  outline: 0;
 }
 
 
 
 .page__title{
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);;
   color: var(--color-decor);
   line-height: 82.5%;
   font-weight: 700;
   font-style: normal;
+  text-shadow:4px 4px 0px var(--color-decor-shadow);
 }
 
-.page__title-shadow {
-  text-shadow:4px 4px 0px var(--color-decor-shadow) ;
-}
+
 
 
 .title {
@@ -159,11 +161,11 @@ gap: 40px;
   font-weight: 700;
   font-size: inherit;
   line-height: inherit;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .title-decor {
-  color: var(--color-text-title);
+  color: var(--color-bg-title);
   background-color: var(--bg-color-title);
 }
  
@@ -203,26 +205,34 @@ gap: 40px;
 .footer {
   background-image: var(--bg-main);
   text-shadow: 4px 4px 0px var(--color-decor-shadow);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   place-items: center;
   position: relative;
+  display: grid;
 }
 
 
 /* media */
 
-@media (768px <= width < 1024px) {
+@media (width >= 768px) {
+ 
   .header__p {
-    justify-self: end;
+    margin-inline-end: 20px; 
     inline-size: 364px;
+    block-size: clamp(7.313rem, 0vw + 7.313rem, 7.313rem);
+    margin-block-end: 70px;
+    
   }
 
+  .page__title {
+    margin-block-start: 50px;
+  }
   .header__theme-menu {
-    margin-top: 170px;
-    margin-bottom: 70px;
+    margin-block-start: 133px;
+    /* margin-block-end: 70px; */
+    padding-inline-end: 20px;
   }
-
   .section:not(:last-child) {
     grid-template-columns: 236px auto;
   }
@@ -237,14 +247,21 @@ gap: 40px;
   .list__what {
     gap: 20px;
   }
-  
-  .cover {
-    display: grid;
-    padding: 20px;
+  .section {
+    gap:20px
   }
-
+  .list {
+    gap: 20px;
+  }
+  .list__what {
+    gap: 20px;
+  }
+  
+  .title__what {
+    margin-block-end: 1px;
+    
+  }
   .gallery-list {
-    display: grid;
     gap: 20px;
     grid-template-columns: repeat(3,1fr);
   }
@@ -260,30 +277,43 @@ gap: 40px;
 
 @media (min-width: 1024px) {
 
-  
   .header__p {
-    justify-self: end;
-    inline-size: 491px;
-    block-size: 71px;
+    block-size: clamp(4.438rem, 5.134vw + 1.152rem, 7.313rem);
+    margin-block-end: 76px;
+    
   }
-
   .header__theme-menu {
     place-items: start center;
+    margin-block-start: 0;
+    margin-block-end: 215px;
   }
-
+  
   .header__theme-menu-list {
     display: flex;
     flex-direction: row;
+    padding-block-start: 20px;
+  
   }
-
-  .section:not(:last-child) {
-    grid-template-columns: 340px auto;
+  .list {
+    gap: 20px;
   }
   .list__what {
-    grid-column-start: span 2;
     grid-template-columns: repeat(3,1fr);
-
   }
+  .section{
+    gap: 12px;
+  }
+
+  .section-how__title {
+    margin-block-end: 18px;
+  }
+  .section:not(:last-child) {
+    grid-template-columns: 320px auto;
+  }
+
+  /* .article {
+    gap: 10px;
+  } */
   .main__theme {
     padding: 60px 20px;
     gap: 80px;
@@ -292,25 +322,10 @@ gap: 40px;
   .list__what {
     gap: 20px;
   }
-  
-  .cover {
-    display: grid;
-    padding: 20px;
-  }
-
-  .gallery-list {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(3,1fr);
-  }
-  .gallery-list__item:first-child, 
-  .gallery-list__item:last-child {
-    grid-column-start: span 2;
-  }
-  .gallery-list__item:nth-child(2),
-  .gallery-list__item:nth-child(3) {
-    grid-row-start:span 2 ;
-  } 
-
 }
+
+  
+
+
+
 
