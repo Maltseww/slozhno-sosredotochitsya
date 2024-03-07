@@ -1,32 +1,25 @@
-/*
-  Специально для тёмной темы при наличии класса,
-  здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 .page.theme_dark {
-  --accent-color: #FF0070;
-  --color-bg-title: #000028;
-  --bg-color-title: var(--accent-color);
-  --color-decor-shadow: #ff0070;
-  --color-decor: #DB00FF;
-  --main-font: "IBM Plex Mono", monospace; 
-  --main-text: #F1B2CE;
-  --transparent: rgba(255, 0, 112, 0.4);
-  --bg-main: url(../images/cover-image-dark.png);
-  --display: flex;
+  --text-color: var(--color-pink-2);
+  --brand-color: var(--color-purple-1);
+  --secondary-color: var(--color-purple-2);
+  --secondary-color-o-40: var(--color-purple-2-o-40);
+  --accent-color: var(--color-purple-2);
+  --highlight-color: var(--color-black-1);
+  --page-background-color: var(--color-black-1);
+  --page-background-image: url("../images/cover-image-dark.png");
+  --rec-decor-visibility: visible;
 }
-@media  (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: dark) {
   :root {
-  --accent-color: #FF0070;
-  --color-bg-title: #000028;
-  --bg-color-title: var(--accent-color);
-  --color-decor-shadow: #ff0070;
-  --color-decor: #DB00FF;
-  --main-font: "IBM Plex Mono", monospace; 
-  --main-text: #F1B2CE;
-  --transparent: rgba(255, 0, 112, 0.4);
-  --bg-main: url(../images/cover-image-dark.png);
-  --display: flex;
+    --text-color: var(--color-pink-2);
+    --brand-color: var(--color-purple-1);
+    --secondary-color: var(--color-purple-2);
+    --secondary-color-o-40: var(--color-purple-2-o-40);
+    --accent-color: var(--color-purple-2);
+    --highlight-color: var(--color-black-1);
+    --page-background-color: var(--color-black-1);
+    --page-background-image: url("../images/cover-image-dark.png");
+    --rec-decor-visibility: visible;
   }
 }
